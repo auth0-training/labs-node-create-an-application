@@ -1,0 +1,15 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "main",
+  "steps": [
+    {
+      "file": "src/web-app/index.js",
+      "description": "Foooooo",
+      "line": 9
+    },
+    {
+      "title": "Barrr",
+      "description": "explainitory text"
+    }
+  ]
+}
