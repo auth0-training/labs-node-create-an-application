@@ -1,0 +1,19 @@
+ul(class='navigation', role='navigation')
+  li.logo
+    a(href='/')
+      img(src='/images/auth0.png')
+  li
+      a(href='/') Home
+  li
+      a(href='/expenses') Expenses
+  li.spacer
+  if user
+    li
+      a(href='/logout') Logout
+    li.profile
+      img.picture(src=user.picture)
+  else
+    li
+      a(href='/login') Login
+    li.profile
+      img(src='/images/profile.png')

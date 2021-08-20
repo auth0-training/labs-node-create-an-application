@@ -1,0 +1,47 @@
+{
+  "name": "web-app-express",
+  "version": "5.0.0",
+  "private": true,
+  "description": "Auth0 Labs Sample Web Application",
+  "license": "MIT",
+  "author": "Auth0",
+  "main": "index.js",
+  "bugs": {
+    "url": "https://github.com/auth0/auth0-product-education-labs/issues"
+  },
+  "homepage": "https://github.com/auth0/auth0-product-education-labs#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/auth0/auth0-product-education-labs.git"
+  },
+  "scripts": {
+    "start": "PORT=$npm_package_config_port SESSION_SECRET=$npm_package_config_session_secret node index"
+  },
+  "config": {
+    "port": 7000,
+    "session_secret": "e6de1374433dde92a5bae567b56b01de32ad0d4f0115b7675f5b985720210f4c"
+  },
+  "keywords": [
+    "auth0",
+    "vercel",
+    "openid",
+    "oidc",
+    "auth",
+    "authentication",
+    "samples",
+    "tools",
+    "labs"
+  ],
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cookie-parser": "~1.4.5",
+    "debug": "~4.3.1",
+    "dotenv": "^9.0.1",
+    "express": "^4.17.1",
+    "express-openid-connect": "^2.3.1",
+    "express-session": "^1.17.1",
+    "http-errors": "~1.8.0",
+    "morgan": "~1.10.0",
+    "pug": "3.0.2"
+  }
+}

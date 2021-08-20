@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  .content
+    h1 Expense Report
+    p
+      | Hello,
+      |
+      if user
+        a(href='/user')=user.name
+      else
+        | Anonymous
+      |.
+      | These are your expenses:
+    table(border='1')
+      tr
+        each key in Object.keys(expenses[0])
+          th
+            strong=key
+      each expense in expenses
+        tr
+          each key in Object.keys(expense)
+            td=expense[key]
+    p Don't spend to much.
