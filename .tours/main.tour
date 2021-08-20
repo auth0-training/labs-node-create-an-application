@@ -18,7 +18,7 @@
     {
       "file": "src/web-app/index.js",
       "description": "## Add Middleware Configuration to the App\n\nWhen added, this code will configure Express with the correct parameters to use the authorization middleware in our application.\n\n``` jsx\napp.use(\n    auth({\n        secret: SESSION_SECRET,\n        auth0Logout: true,\n        baseURL: APP_URL,\n    })\n);\n```\n to add it to the application.",
-      "line": 54,
+      "line": 48,
       "selection": {
         "start": {
           "line": 41,
@@ -37,7 +37,7 @@
     {
       "file": "src/web-app/index.js",
       "description": "## Add issuerBaseURL and clientID Configuration Values\n\nSince we configured these values to be available as environment variables, we'll simply configure them in the middleware as follows:\n\n``` jsx\nissuerBaseURL: ISSUER_BASE_URL,\nclientID: CLIENT_ID,\n```\n to add these values to the configuration code.",
-      "line": 44,
+      "line": 45,
       "selection": {
         "start": {
           "line": 42,
@@ -58,12 +58,76 @@
       "description": "A short video demonstration? Screenshots and text? Pendo would rock here eventually."
     },
     {
-      "description": "## Log in to the App!\nNow that the authorization server (Auth0) knows where to expect our application's requests to come from, we should be able to load the application up. \n1. #### Refresh the App!\n    It should still be running, so return to the browser page and refresh.\n2. #### Create a new account.\n    We're going to log in to the application, but first, let's create a new user account so that your admin account can remain separate. Click the Sign-Up link and create a new account. \n\n    If you have a Gmail account, (personal, or \"Google for Work\") append \"**+auth0labs**\" to create a Gmail alias for it. \n\n    **Example:** If my email is someone@gmail.com, it would become someone<b>+auth0labs</b>@gmail.com\n    \n    This step will ensure that no wires are crossed with all the accounts you'll be setting up over the course of these labs. Any emails that your app or Auth0 generate will still come to your regular Gmail inbox, but the account will be listed separately in Auth0. We'll use this account later, so be certain to use a password that you will remember!\n    \n\n3. #### Log in! \n    You should be able to log into your Web Application now - Give it a try!",
-      "title": "Log in to the App!"
+      "description": "## Log in to the App with Auth0!\nNow that the authorization server (Auth0) knows where to expect our application's requests to come from, we should be able to load the application up. \n1. #### Refresh the App!\n    It should still be running, so return to the browser page and refresh.\n2. #### Create a new account.\n    We're going to log in to the application, but first, let's create a new user account so that your admin account can remain separate. Click the Sign-Up link and create a new account. \n\n    If you have a Gmail account, (personal, or \"Google for Work\") append \"**+auth0labs**\" to create a Gmail alias for it. \n\n    **Example:** If my email is someone@gmail.com, it would become someone<b>+auth0labs</b>@gmail.com\n    \n    This step will ensure that no wires are crossed with all the accounts you'll be setting up over the course of these labs. Any emails that your app or Auth0 generate will still come to your regular Gmail inbox, but the account will be listed separately in Auth0. We'll use this account later, so be certain to use a password that you will remember!\n    \n\n3. #### Log in! \n    You should be able to log into your Web Application now - Give it a try!",
+      "title": "Log in to the App with Auth0!"
     },
     {
       "title": "View Your Profile",
-      "description": ""
+      "description": "## View Your Profile\nAfter authentication, the application displays the profile image associated with the authenticated user and addresses them by name. The username is now listed and links to a profile page displaying the user's OIDC profile information.\n\n1. ## View the OIDC profile information\n    Click the **username** link on the page to view the OIDC profile.\n2. ## Logout to end the session\n    After having a look through the information, click the Logout link to log out of the application. \n\n    Notice that you are immediately prompted to authenticate again. This is because we applied the auth middleware to all routes in the application. So, the auth middleware is intercepting all requests and forcing authentication.\n\n    Let's make some adjustments to the application to correct this."
+    },
+    {
+      "title": "Adjust Where Authentication Applies",
+      "description": "## Adjust Where Authentication Applies\nTypically, applications will have a mixture of public and priovate routes. Let's make some changes to our application that will allow users to visit the home page, but require authentication to view expenses and profile information.\n\nFirst, we'll update the authentication middleware configuration to add a new value that will make authentication optional globally.\n"
+    },
+    {
+      "file": "src/web-app/index.js",
+      "description": "## Enable Global Authentication Routing\nHere, we'll add code to the application that configures the middleware to make authentication optional across the entire application. In the app.use configuration block that we added previously, we'll add:\n\n``` jsx\n\nauthRequired: false,\n```\n to make this change.\n\nWith this done, all routes are public again. We'll need a way to explicitly make certain routes private. Thankfully, this functionality is supplied by the same express-openid-connect middleware! ",
+      "line": 50,
+      "selection": {
+        "start": {
+          "line": 47,
+          "character": 22
+        },
+        "end": {
+          "line": 47,
+          "character": 22
+        }
+      }
+    },
+    {
+      "file": "src/web-app/index.js",
+      "description": "## Enable Securing Specific Routes\nBefore we can configure the authorization middleware to allow us to secure specific routes, we need to add the **requiresAuth** parameter to our require statement.\n\n``` jsx\n, requiresAuth\n```\n to add this now.\n",
+      "line": 9,
+      "selection": {
+        "start": {
+          "line": 9,
+          "character": 13
+        },
+        "end": {
+          "line": 9,
+          "character": 13
+        }
+      }
+    },
+    {
+      "file": "src/web-app/index.js",
+      "description": "## Secure the User Route\nTo secure the user route, we'll add the requiresAuth middleware directly to it.\n\n``` jsx\n requiresAuth(),\n```\nto secure the route.",
+      "line": 75,
+      "selection": {
+        "start": {
+          "line": 75,
+          "character": 17
+        },
+        "end": {
+          "line": 75,
+          "character": 17
+        }
+      }
+    },
+    {
+      "file": "src/web-app/index.js",
+      "description": "## Secure the Expenses Route\nWe'll want to ensure unauthenticated users aren't able to view the Expenses, either. So we'll add the middleware to this route too.\n\n``` jsx\n requiresAuth(),\n```\n to secure the route.",
+      "line": 84,
+      "selection": {
+        "start": {
+          "line": 84,
+          "character": 21
+        },
+        "end": {
+          "line": 84,
+          "character": 21
+        }
+      }
     }
   ]
 }
