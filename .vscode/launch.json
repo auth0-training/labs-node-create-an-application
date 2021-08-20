@@ -7,7 +7,7 @@
     // example
     // {
     //   "type": "node", //node process
-    //   "request": "launch", // start 
+    //   "request": "launch", // start
     //   "name": "Launch API", // menu name
     //   "skipFiles": [
     //     "<node_internals>/**" // magic files releated to node ignore
@@ -16,13 +16,24 @@
     //   "runtimeArgs": ["run", "api:start"], // pass these parameters to npm
     //   "port": 9005 // use this port for the debugger
     // },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Web App",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "web-app:start"],
+      "port": 9005
+    },
   ],
-  "compounds": [// allow you to start multiple apps
-    // {
-    //   "name": "Launch All", // menu name
-    //   "configurations": [ // list of things to launch
-    //     "Launch API" // as many named configurations as needed
-    //   ]
-    // }
+  "compounds": [
+    {
+      "name": "Launch All",
+      "configurations": [
+        "Launch Web App"
+      ]
+    }
   ]
 }
