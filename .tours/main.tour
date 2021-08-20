@@ -18,7 +18,7 @@
     {
       "file": "src/web-app/index.js",
       "description": "## Add Middleware Configuration to the App\n\nWhen added, this code will configure Express with the correct parameters to use the authorization middleware in our application.\n\n``` jsx\napp.use(\n    auth({\n        secret: SESSION_SECRET,\n        auth0Logout: true,\n        baseURL: APP_URL,\n    })\n);\n```\n to add it to the application.",
-      "line": 48,
+      "line": 54,
       "selection": {
         "start": {
           "line": 41,
@@ -37,7 +37,7 @@
     {
       "file": "src/web-app/index.js",
       "description": "## Add issuerBaseURL and clientID Configuration Values\n\nSince we configured these values to be available as environment variables, we'll simply configure them in the middleware as follows:\n\n``` jsx\nissuerBaseURL: ISSUER_BASE_URL,\nclientID: CLIENT_ID,\n```\n to add these values to the configuration code.",
-      "line": 43,
+      "line": 44,
       "selection": {
         "start": {
           "line": 42,
