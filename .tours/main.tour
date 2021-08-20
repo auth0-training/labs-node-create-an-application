@@ -3,13 +3,67 @@
   "title": "main",
   "steps": [
     {
+      "title": "Adding Authentication",
+      "description": "## Adding Authentication\nNow that the application is set up in the Auth0 dashboard, and the application's codebase is configured with the correct parameters to connect to it, we're ready to add authentication. \n\nTo do this, the application will make use of some Express middleware that will provide OpenID Connect based authentication.\n\nSpecifically, the middleware automatically defines three routes in the application:\n\n- #### The login route, /login\n    This route builds the OpenID Connect request and redirects to the authorization server (In this case, Auth0). For this to work properly, the middleware needs to include specific parameters with the request. You will configure these values using environment variables in the next step.\n- #### /callback\n    This handles the authorization server's (Auth0) response and performs required validations like nonce, state, and token verification.\n- #### /logout\n    This terminates the session in the application and redirects to the authorization server (Auth0) to end the session there as well.\n\nThe middleware will also augment Express's request object with additional properties whenever the request is authenticated. For example, req.openid.user is a property that will contain user information."
+    },
+    {
       "file": "src/web-app/index.js",
-      "description": "Foooooo",
+      "description": "## Edit the App Code to Require the Middleware\n\nHere, we'll add the OpenID Connect Express middleware to our code, to ebable it for use by the application.\n\nClick Insert Code below to drop this straight in.\n\n``` jsx\nconst { auth } = require(\"express-openid-connect\");\n```",
       "line": 9
     },
     {
-      "title": "Barrr",
-      "description": "explainitory text"
+      "title": "Configure the App to Use the Authentication Middleware",
+      "description": "## Configure the App to use the Authentication Middleware\n\nExcellent! The express-openid-connect middleware is now available to the application. \n\nNow it needs to be configured.\n\nThere are two pieces of information that the middleware needs in order to build a proper OpenID request and send it back to the authorization server (Auth0). \n\n1. #### The **secret**\n    This is used to derive an encryption key for the user identity in a session cookie, and to sign the transient cookies used by the login callback. The value can be obtained directly from the **SESSION_SECRET** environment variable. We are passing this directly because for this sample lab, it is a hard-coded value. \n2. #### The **baseURL**\n    This is the publicly accessible URL for the application. The middleware uses this to construct URLs pointing back to the application. The value can be obtained directly from the **APP_URL** environment variable. We are passing this directly because for this sample lab, it is a hard-coded value. \n\nProceed to the next step to add the configuration into the application code."
+    },
+    {
+      "file": "src/web-app/index.js",
+      "description": "## Add Middleware Configuration to the App\n\nWhen added, this code will configure Express with the correct parameters to use the authorization middleware in our application.\n\n``` jsx\napp.use(\n    auth({\n        secret: SESSION_SECRET,\n        auth0Logout: true,\n        baseURL: APP_URL,\n    })\n);\n```\n to add it to the application.",
+      "line": 48,
+      "selection": {
+        "start": {
+          "line": 41,
+          "character": 1
+        },
+        "end": {
+          "line": 41,
+          "character": 43
+        }
+      }
+    },
+    {
+      "title": "What about issuerBaseURL and clientID?",
+      "description": "## What about issuerBaseURL and clientID?\n\n#### Good catch! \n\nIn order for the middleware to work properly, it needs to be configured with the URL for the authorization server (the **issuerBaseURL**) and the unique string that the Authorization server uses to recognize the application (the **clientID**).\n\n#### About issuerBaseURL\nThe middleware uses the **issuerBaseURL** to download the OpenID Connect configuration from the discovery document, available at the URL: https://{your-auth0-domain}/.well-known/openid-configuration.\n\nThis discovery document is a standard OpenID Connect mechanism used to publish relevant discovery metadata of the OpenID Connect provider (Auth0), including a link to what keys should be used for validating the tokens it issues.\n\n#### About clientID\nThe clientID is created on the authorization server (Auth0) and must be provided in each request so that the authorization server knows what application the authentication request is for.  \n\n#### Next Step\nEarlier in this lab, you configured these values by creating an application in the Auth0 dashboard. Then you added them to the env-config.js file. For this reason, they're also available as environment variables to our application. \n\nTo add them to the express middleware configuration, we simply need to refrence the environmental variables. Here's what that looks like:\n\n    "
+    },
+    {
+      "file": "src/web-app/index.js",
+      "description": "## Add issuerBaseURL and clientID Configuration Values\n\nSince we configured these values to be available as environment variables, we'll simply configure them in the middleware as follows:\n\n``` jsx\nissuerBaseURL: ISSUER_BASE_URL,\nclientID: CLIENT_ID,\n```\n to add these values to the configuration code.",
+      "line": 43,
+      "selection": {
+        "start": {
+          "line": 42,
+          "character": 10
+        },
+        "end": {
+          "line": 42,
+          "character": 10
+        }
+      }
+    },
+    {
+      "title": "Run the App - Uh Oh!",
+      "description": "## Run the App -- Uh Oh!\nFair warning, we're not done yet. We're going to go ahead and run the app, but there'll be an expected error. Dont' worry - we'll fix it. \n\n## Run the application locally\nTo run the app:\n1. Click the debug button in the vscode window\n    image goes here\n2. From the **RUN AND DEBUG** dropdown menu at the top, select 'Launch Web App'\n    image goes here\n3. Click the play button\n    image goes here\n4. After a little work, that you can observe in the terminal, you'll see a URL that you can click to visit the application. Do that now!\n\nHere's that \"Uh Oh\" moment we warned you about. \n\nThe authorization server has issued an error: unauthorized_client: Callback URL mismatch. To correct this, we need to whitelist the URL that our application is running from within the Auth0 dashboard. \n\nHead to the next step and let's fix this."
+    },
+    {
+      "title": "Add the Callback and Allowed Logout URLs",
+      "description": "A short video demonstration? Screenshots and text? Pendo would rock here eventually."
+    },
+    {
+      "description": "## Log in to the App!\nNow that the authorization server (Auth0) knows where to expect our application's requests to come from, we should be able to load the application up. \n1. #### Refresh the App!\n    It should still be running, so return to the browser page and refresh.\n2. #### Create a new account.\n    We're going to log in to the application, but first, let's create a new user account so that your admin account can remain separate. Click the Sign-Up link and create a new account. \n\n    If you have a Gmail account, (personal, or \"Google for Work\") append \"**+auth0labs**\" to create a Gmail alias for it. \n\n    **Example:** If my email is someone@gmail.com, it would become someone<b>+auth0labs</b>@gmail.com\n    \n    This step will ensure that no wires are crossed with all the accounts you'll be setting up over the course of these labs. Any emails that your app or Auth0 generate will still come to your regular Gmail inbox, but the account will be listed separately in Auth0. We'll use this account later, so be certain to use a password that you will remember!\n    \n\n3. #### Log in! \n    You should be able to log into your Web Application now - Give it a try!",
+      "title": "Log in to the App!"
+    },
+    {
+      "title": "View Your Profile",
+      "description": ""
     }
   ]
 }
