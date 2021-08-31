@@ -53,7 +53,7 @@
     },
     {
       "file": "src/web-app/index.js",
-      "description": "## About the sessionSecret\nThis is used to derive an encryption key for the user identity in a session cookie, and to sign the transient cookies used by the login callback. The value can be obtained directly from the **SESSION_SECRET** environment variable. We are passing this directly because for this sample lab, it is a hard-coded value. \n\n+ writing cookies to the user's browser - so if there are multiple webservers that all need to interpret the cookie, the session secret needs to be the same on each respective environment. ",
+      "description": "## About the sessionSecret\nThis is used to derive an encryption key for the user identity in a session cookie, and to sign the transient cookies used by the login callback. The value can be obtained directly from the **SESSION_SECRET** environment variable. We are passing this directly because for this sample lab, it is a hard-coded value. \n\nThese cookies are written to the user's browser. If there are multiple webservers that need to interpret the cookie, it's important that the session secret be the same on each respective environment.",
       "line": 49,
       "selection": {
         "start": {
