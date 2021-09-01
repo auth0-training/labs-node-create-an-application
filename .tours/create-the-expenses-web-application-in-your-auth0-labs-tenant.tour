@@ -8,6 +8,10 @@
     {
       "title": "Create a Web App in Your Labs Tenant",
       "description": "## Create a Web App in Your Labs Tenant\nBefore you can begin configuring the Web App for authentication, it must be registered in the Auth0 dashboard. Let's do that now.\n\n1. #### Log into your Auth0 dashboard (You may already be logged in.)\n\n1. #### Make sure you're working in your 'labs' tenant.\n    ![Select labs tenant](./.auth0/lab/images/working-with-applications-0.gif)\n\n1. #### Select the \"**Applications**\" drop-down menu in the left-side navigation, and select \"**Applications**\"\n    ![Open applications menu](./.auth0/lab/images/working-with-applications-1.gif)\n\n1. #### Click the \"**+ Create Application**\" button.\n1. #### Name the Application \"**Web App**\".\n1. #### Select \"**Regular Web Applications**\".\n1. #### Click the \"**Create**\" button.\n     Here's how this should look:\n     ![create-2](./.auth0/lab/images/create-2.gif)\n\n1. #### You're ready to begin adding Authentication to your Web Application!\n"
+    },
+    {
+      "title": "Configure this Lab",
+      "description": "## Configure this Lab\nNow we'll run a few commands to ensure that the lab is set up correctly. Once you've run these, you'll be ready to move forward.\n\n1. Click [here](command:workbench.action.terminal.new) to open your terminal so that you can see when the subsequent commands are finished running. You may already have a terminal open - that's OK.\n1. Click [here](command:auth0.lab.configure) to leverage the Auth0 extension for vscode and the CLI to ensure the lab is set up correctly. \n1. Click [here](command:workbench.action.files.saveAll) to save this progress."
     }
   ],
   "isPrimary": true,
