@@ -38,7 +38,7 @@
     },
     {
       "file": "src/web-app/index.js",
-      "description": "## Walk Through the Configuration Keys\n\nNow, let's take a look through the configuration keys within the code we just added for the auth middleware. ",
+      "description": "## Configure the Local Environment\n\nIn a moment, we'll take a look through the configuration keys within the code that we just added for the auth middleware. Before we do, let's ensure that our local environment is configured with the necessary environmental variables (values) for these keys. \n\n   1. Click [here](command:auth0.lab.localConfigure) to ensure that this local environment is configured with the correct values to match the Auth0 configuration.\n   1. Click [here](command:workbench.action.files.saveFiles) to save this progress.\n\nYou'll notice that a .env file has been added to your web-app directory. We'll take a quick look at it in the next step, before returning to examine the keys in our code.",
       "line": 49,
       "selection": {
         "start": {
@@ -50,6 +50,11 @@
           "character": 3
         }
       }
+    },
+    {
+      "file": "src/web-app/.env",
+      "description": "## Examine the Environment Variables\nIn the last step, you clicked a command that leveraged the Auth0 extension for vscode to reach out to your configured tenant and retrieve the necessary values to configure this local environment. The values in this .env file are unique to your Auth0 tenant, and are available to your application code.\n\nLet's go back to our application code and talk about the keys we've added to the middleware configuration.",
+      "line": 4
     },
     {
       "file": "src/web-app/index.js",
