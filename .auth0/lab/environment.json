@@ -1,8 +1,6 @@
 {
   "name": "Lab Node Create an Application",
   "version":"1.1.0",
-  "resources": "resources.yml",
-  "postConfigureTour": ".auth0/lab/guides/main.tour",
   "clients": [
     {
       "name":"Lab: Web App",
@@ -14,6 +12,5 @@
         "PORT": 7000
       }
     }
-  ],
-  "resourceServers": []
+  ]
 }
