@@ -1,16 +1,33 @@
 {
   "name": "lab-node-create-an-application",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "1.1.0",
+  "description": "An auth0 training lab on implementing OpenID Connect based authentication in and express application.",
+  "license": "MIT",
+  "author": "Auth0",
+  "bugs": {
+    "url": "https://github.com/auth0-training/labs-node-create-an-application/issues"
+  },
+  "homepage": "https://github.com/auth0-training/labs-node-create-an-application.git#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/auth0-training/labs-node-create-an-application.git"
+  },
   "scripts": {
     "init": "concurrently \"npm:init:dependencies\"",
     "init:dependencies": "concurrently \"npm:web-app:dependencies\"",
     "web-app:start": "npm start --prefix ./src/web-app",
     "web-app:dependencies": "npm install --prefix ./src/web-app"
   },
-  "author": "",
-  "license": "MIT",
+  "keywords": [
+    "auth0",
+    "oauth2",
+    "openid",
+    "oidc",
+    "auth",
+    "authentication",
+    "samples",
+    "labs"
+  ],
   "dependencies": {
     "concurrently": "^6.2.1",
     "eslint": "^7.32.0"

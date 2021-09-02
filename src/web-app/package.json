@@ -7,12 +7,12 @@
   "author": "Auth0",
   "main": "index.js",
   "bugs": {
-    "url": "https://github.com/auth0/auth0-product-education-labs/issues"
+    "url": "https://github.com/auth0-training/labs-node-create-an-application/issues"
   },
-  "homepage": "https://github.com/auth0/auth0-product-education-labs#readme",
+  "homepage": "https://github.com/auth0-training/labs-node-create-an-application#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/auth0/auth0-product-education-labs.git"
+    "url": "git+https://github.com/auth0-training/labs-node-create-an-application.git"
   },
   "scripts": {
     "start": "PORT=$npm_package_config_port SESSION_SECRET=$npm_package_config_session_secret node index"
@@ -23,7 +23,6 @@
   },
   "keywords": [
     "auth0",
-    "vercel",
     "openid",
     "oidc",
     "auth",
