@@ -11,7 +11,7 @@
     {
       "file": "src/web-app/index.js",
       "description": "## Edit the App Code to Require the Middleware\n\nHere, we'll add the OpenID Connect Express middleware to our code, to ebable it for use by the application.\n\nClick Insert Code below to drop this straight in.\n\n``` jsx\nconst { auth } = require(\"express-openid-connect\");\n\n```",
-      "line": 12,
+      "line": 11,
       "selection": {
         "start": {
           "line": 9,
@@ -26,7 +26,7 @@
     {
       "file": "src/web-app/index.js",
       "description": "## Configure the App to use the Authentication Middleware\nIn order for our application to use the auth middleware to route requests, it must be supplied with certain keys. Let's add the necessary code, below, then walk through each of the required keys.\n\n``` jsx\n\napp.use(\n    auth({\n        secret: SESSION_SECRET,\n        auth0Logout: true,\n        baseURL: APP_URL,\n        issuerBaseURL: ISSUER_BASE_URL,\n        clientID: CLIENT_ID,\n    })\n);\n\n```\n to add it to the application.",
-      "line": 50,
+      "line": 60,
       "selection": {
         "start": {
           "line": 40,
@@ -143,7 +143,7 @@
       "file": "src/web-app/index.js",
       "line": 1,
       "title": "Add the Callback and Allowed Logout URLs",
-      "description": "## Add the Callback and Allowed Logout URLs\nThe next few steps will require stepping out of vscode to make some configuration changes in your labs tenant in the Auth0 dashboard. \n\n1. #### Before moving forward let's do a little housekeeping:\n    1. Make sure everything here is saved by clicking [here](command:workbench.action.files.saveFiles).\n    1. Stop the debug session by clicking [here](workbench.action.debug.stop). We'll start it again after making these changes in our tenant.\n\n1. #### Log into your Auth0 dashboard.\n\n1. #### Make sure you're working in your 'labs' tenant.\n    ![Select labs tenant](./.auth0/lab/images/working-with-applications-0.gif)\n\n1. #### Select the **Applications** drop-down menu in the left-side navigation, and select **Applications**\n    ![Open applications menu](./.auth0/lab/images/working-with-applications-1.gif)\n\n1. #### Click into the configuration for the Web App.\n    ![Open the Web App settings](./.auth0/lab/images/working-with-applications-2.gif)\n\n1. #### Scroll down to locate the Application URI's section.\n    ![Locate the Application URI section](./.auth0/lab/images/working-with-applications-3.gif)\n\n1. #### Modify the Callback and Allowed Logout URLs.\n    1. Under the **Allowed Callback URLs** field, paste the URL from your application that you copied in the last step of the codetour. Then, append /callback to the end of it. \n    2. In the **Allowed Logout URLs** field, paste the URL again. No need to modify it this time.\n    3. Scroll to the bottom of the page and click the **Save Changes** button.\n\nWell done! Our Auth0 tenant configuration for the application is now configured to whitelist our application's callback and logout URL.\n\nIn the next step, we'll run our application again and log in!"
+      "description": "## Add the Callback and Allowed Logout URLs\nThe next few steps will require stepping out of vscode to make some configuration changes in your labs tenant in the Auth0 dashboard. \n\n1. #### Before moving forward let's do a little housekeeping:\n    1. Make sure everything here is saved by clicking [here](command:workbench.action.files.saveFiles).\n    1. Stop the debug session by clicking [here](workbench.action.debug.stop). We'll start it again after making these changes in our tenant.\n\n1. #### Log into your Auth0 dashboard.\n\n1. #### Make sure you're working in your 'labs' tenant.\n    ![Select labs tenant](./.auth0/lab/guides/images/working-with-applications-0.gif)\n\n1. #### Select the **Applications** drop-down menu in the left-side navigation, and select **Applications**\n    ![Open applications menu](./.auth0/lab/guides/images/working-with-applications-1.gif)\n\n1. #### Click into the configuration for the Web App.\n    ![Open the Web App settings](./.auth0/lab/guides/images/working-with-applications-2.gif)\n\n1. #### Scroll down to locate the Application URI's section.\n    ![Locate the Application URI section](./.auth0/lab/guides/images/working-with-applications-3.gif)\n\n1. #### Modify the Callback and Allowed Logout URLs.\n    1. Under the **Allowed Callback URLs** field, paste the URL from your application that you copied in the last step of the codetour. Then, append /callback to the end of it. \n    2. In the **Allowed Logout URLs** field, paste the URL again. No need to modify it this time.\n    3. Scroll to the bottom of the page and click the **Save Changes** button.\n\nWell done! Our Auth0 tenant configuration for the application is now configured to whitelist our application's callback and logout URL.\n\nIn the next step, we'll run our application again and log in!"
     },
     {
       "file": "src/web-app/index.js",
