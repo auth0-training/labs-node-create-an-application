@@ -30,6 +30,19 @@
   ],
   "dependencies": {
     "concurrently": "^6.2.1",
-    "eslint": "^7.32.0"
+    "eslint": "^7.32.0",
+    "prettier": "^2.3.2"
+  },
+  "prettier": {
+    "printWidth": 80,
+    "singleQuote": true,
+    "arrowParens": "always",
+    "bracketSpacing": true,
+    "endOfLine": "auto",
+    "quoteProps": "consistent",
+    "semi": true,
+    "tabWidth": 2,
+    "trailingComma": "es5",
+    "useTabs": false
   }
 }
