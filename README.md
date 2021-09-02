@@ -4,7 +4,7 @@
 
 An auth0 training lab on implementing [OpenID Connect](https://openid.net/connect/) based authentication in and express application.
 
-> Note: This lab is an experimental release, and is built on a best-efforts basis by some Auth0 developers in their available innovation time. It is open-source licensed and free to use, and is not covered by any Auth0 Terms of Service or Agreements. If you have issues with this mab you can engage with the project's developer community through the repository GitHub Issues list, or contribute fixes and enhancements of your own via a Pull Request.
+> Note: This lab is an experimental release, and is built on a best-efforts basis by some Auth0 developers in their available innovation time. It is open-source licensed and free to use, and is not covered by any Auth0 Terms of Service or Agreements. If you have issues with this lab you can engage with the project's developer community through the repository GitHub Issues list, or contribute fixes and enhancements of your own via a Pull Request.
 ### Requirements
 
 You'll need an Auth0 account. If you do not already have one, you can create a free one [here](https://auth0.com/signup).
