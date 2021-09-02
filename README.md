@@ -12,6 +12,23 @@ You'll need an Auth0 account. If you do not already have one, you can create a f
 This lab assumes the user is using [Visual Studio Code](https://code.visualstudio.com/download) and [Docker Desktop](https://www.docker.com/products/docker-desktop).
 
 The [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension needs to be installed in VSCode.
+
+### Getting Started
+
+To get started using this lab, ensure you have met the minimum [requirements](#requirements) and then follow these steps.
+
+1. Clone this repository to your local machine.
+  ```bash
+  git clone https://github.com/auth0-training/labs-node-create-an-application.git
+  ```
+2. Start Docker Desktop.
+3. Open the directory containing the source code in VSCode.
+4. When prompted to reopen the project in a development container, select **Reopen in Container**.
+  ![Devcontainer Prompt](./.auth0/lab/guides/images/devcontainer-prompt.gif?raw=true)
+
+This will build an image containing all the tools needed to complete this lab. A container will be started and VSCode will connect to it.
+
+
 ### What is Auth0?
 ---
 
