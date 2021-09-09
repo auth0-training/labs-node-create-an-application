@@ -6,7 +6,6 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const path = require("path");
 const { createServer } = require("http");
-// 👉 Replace this with express-openid-connect require 👈
 
 const {
   checkUrl,
@@ -21,7 +20,7 @@ const {
 
 const app = express();
 
-app.use(checkUrl()); // Used to normalize URL in Vercel
+app.use(checkUrl());
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
 app.use(logger("combined"));
@@ -37,8 +36,6 @@ app.use(
     saveUninitialized: true,
   })
 );
-
-// 👉 Replace this with auth middleware 👈
 
 const expenses = [
   {

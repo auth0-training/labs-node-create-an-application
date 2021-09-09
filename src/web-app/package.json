@@ -7,12 +7,12 @@
   "author": "Auth0",
   "main": "index.js",
   "bugs": {
-    "url": "https://github.com/auth0/auth0-product-education-labs/issues"
+    "url": "https://github.com/auth0-training/labs-node-create-an-application/issues"
   },
-  "homepage": "https://github.com/auth0/auth0-product-education-labs#readme",
+  "homepage": "https://github.com/auth0-training/labs-node-create-an-application#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/auth0/auth0-product-education-labs.git"
+    "url": "git+https://github.com/auth0-training/labs-node-create-an-application.git"
   },
   "scripts": {
     "start": "PORT=$npm_package_config_port SESSION_SECRET=$npm_package_config_session_secret node index"
@@ -23,7 +23,6 @@
   },
   "keywords": [
     "auth0",
-    "vercel",
     "openid",
     "oidc",
     "auth",
@@ -35,11 +34,11 @@
   "dependencies": {
     "axios": "^0.21.1",
     "cookie-parser": "~1.4.5",
-    "debug": "~4.3.1",
-    "dotenv": "^9.0.1",
+    "debug": "~4.3.2",
+    "dotenv": "10.0.0",
     "express": "^4.17.1",
-    "express-openid-connect": "^2.3.1",
-    "express-session": "^1.17.1",
+    "express-openid-connect": "^2.5.0",
+    "express-session": "^1.17.2",
     "http-errors": "~1.8.0",
     "morgan": "~1.10.0",
     "pug": "3.0.2"

@@ -1,0 +1,233 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "2: Add Authentication to the Expenses Web Application",
+  "steps": [
+    {
+      "file": "src/web-app/index.js",
+      "line": 1,
+      "title": "About Adding Authentication",
+      "description": "## About Adding Authentication\nNow that the application is set up in the Auth0 dashboard, and the application's codebase is configured with the correct parameters to connect to it, we're ready to add authentication. \n\nTo do this, the application will make use of some Express middleware that will provide OpenID Connect based authentication.\n\nSpecifically, the middleware automatically defines three routes in the application:\n\n- #### The login route, /login\n    This route builds the OpenID Connect request and redirects to the authorization server (In this case, Auth0). For this to work properly, the middleware needs to include specific parameters with the request. You will configure these values using environment variables in the next step.\n- #### /callback\n    This handles the authorization server's (Auth0) response and performs required validations like nonce, state, and token verification.\n- #### /logout\n    This terminates the session in the application and redirects to the authorization server (Auth0) to end the session there as well.\n\nThe middleware will also augment Express's request object with additional properties whenever the request is authenticated. For example, req.openid.user is a property that will contain user information."
+    },
+    {
+      "file": "src/web-app/index.js",
+      "description": "## Edit the App Code to Require the Middleware\n\nHere, we'll add the OpenID Connect Express middleware to our code, to ebable it for use by the application.\n\nClick Insert Code below to drop this straight in.\n\n``` jsx\nconst { auth } = require(\"express-openid-connect\");\n\n```",
+      "line": 11,
+      "selection": {
+        "start": {
+          "line": 9,
+          "character": 1
+        },
+        "end": {
+          "line": 9,
+          "character": 1
+        }
+      }
+    },
+    {
+      "file": "src/web-app/index.js",
+      "description": "## Configure the App to use the Authentication Middleware\nIn order for our application to use the auth middleware to route requests, it must be supplied with certain keys. Let's add the necessary code, below, then walk through each of the required keys.\n\n``` jsx\n\napp.use(\n    auth({\n        secret: SESSION_SECRET,\n        auth0Logout: true,\n        baseURL: APP_URL,\n        issuerBaseURL: ISSUER_BASE_URL,\n        clientID: CLIENT_ID,\n    })\n);\n\n```\n to add it to the application.",
+      "line": 60,
+      "selection": {
+        "start": {
+          "line": 40,
+          "character": 1
+        },
+        "end": {
+          "line": 40,
+          "character": 1
+        }
+      }
+    },
+    {
+      "file": "src/web-app/index.js",
+      "description": "## Configure the Local Environment\n\nIn a moment, we'll take a look through the configuration keys within the code that we just added for the auth middleware. Before we do, let's ensure that our local environment is configured with the necessary environmental variables (values) for these keys. \n\n   1. Click [here](command:auth0.lab.localConfigure) to ensure that this local environment is configured with the correct values to match the Auth0 configuration.\n   1. Click [here](command:workbench.action.files.saveFiles) to save this progress.\n\nYou'll notice that a .env file has been added to your web-app directory. We'll take a quick look at it in the next step, before returning to examine the keys in our code.",
+      "line": 49,
+      "selection": {
+        "start": {
+          "line": 41,
+          "character": 1
+        },
+        "end": {
+          "line": 49,
+          "character": 3
+        }
+      }
+    },
+    {
+      "file": "src/web-app/.env",
+      "description": "## Examine the Environment Variables\nIn the last step, you clicked a command that leveraged the Auth0 extension for vscode to reach out to your configured tenant and retrieve the necessary values to configure this local environment. The values in this .env file are unique to your Auth0 tenant, and are available to your application code.\n\nLet's go back to our application code and talk about the keys we've added to the middleware configuration.",
+      "line": 4
+    },
+    {
+      "file": "src/web-app/index.js",
+      "description": "## About the sessionSecret\nThis is used to derive an encryption key for the user identity in a session cookie, and to sign the transient cookies used by the login callback. The value can be obtained directly from the **SESSION_SECRET** environment variable. We are passing this directly because for this sample lab, it is a hard-coded value. \n\nThese cookies are written to the user's browser. If there are multiple webservers that need to interpret the cookie, it's important that the session secret be the same on each respective environment.",
+      "line": 49,
+      "selection": {
+        "start": {
+          "line": 43,
+          "character": 1
+        },
+        "end": {
+          "line": 43,
+          "character": 28
+        }
+      }
+    },
+    {
+      "file": "src/web-app/index.js",
+      "description": "## About the baseURL\nThis is the publicly accessible URL for the application. The middleware uses this to construct URLs pointing back to the application. The value can be obtained directly from the **APP_URL** environment variable. We are passing this directly because for this sample lab, it is a hard-coded value. ",
+      "line": 49,
+      "selection": {
+        "start": {
+          "line": 45,
+          "character": 1
+        },
+        "end": {
+          "line": 45,
+          "character": 22
+        }
+      }
+    },
+    {
+      "file": "src/web-app/index.js",
+      "description": "## About the issuerBaseURL\nThis is the Domain of the tenant that the application is configured in. It is passed here as a secure URL.\n\nThe middleware uses the **issuerBaseURL** to download the OpenID Connect configuration from the discovery document, available at the URL: https://{your-auth0-domain}/.well-known/openid-configuration.\n\nThis discovery document is a standard OpenID Connect mechanism used to publish relevant discovery metadata of the OpenID Connect provider (Auth0), including a link to what keys should be used for validating the tokens it issues.",
+      "line": 49,
+      "selection": {
+        "start": {
+          "line": 46,
+          "character": 1
+        },
+        "end": {
+          "line": 46,
+          "character": 36
+        }
+      }
+    },
+    {
+      "file": "src/web-app/index.js",
+      "description": "## About the clientID\nThe clientID is created on the authorization server (Auth0) and must be provided in each request so that the authorization server knows what application the authentication request is for.  \n\n    ",
+      "line": 49,
+      "selection": {
+        "start": {
+          "line": 47,
+          "character": 1
+        },
+        "end": {
+          "line": 47,
+          "character": 25
+        }
+      }
+    },
+    {
+      "file": "src/web-app/index.js",
+      "description": "## Note: issuerBaseURL and ClientID\nYou'll notice that in the code we inserted, all of the keys are variables. This is because we've specified the values for these keys in our environment file for the application (env-config.js). \n\nThe issuerBaseURL and ClientID don't actually have to be specified in this configuration if they are formatted correctly in the application's environment file. The middlware is able to recognize them from there if they are formatted as ISSUER_BASE_URL and CLIENT_ID. We've specified them in this in-app configuration for demonstration purposes.",
+      "line": 48,
+      "selection": {
+        "start": {
+          "line": 46,
+          "character": 1
+        },
+        "end": {
+          "line": 47,
+          "character": 25
+        }
+      }
+    },
+    {
+      "file": "src/web-app/index.js",
+      "line": 1,
+      "title": "Run the App - Uh Oh!",
+      "description": "## Run the App -- Uh Oh!\nFair warning, we're not done yet. We're going to go ahead and run the app, but there'll be an expected error. Dont' worry - we'll fix it. \n\n1. #### Run the Application\n    1. Click [here](command:workbench.action.files.saveFiles) to save all this progress.\n    1. Click [here](command:workbench.action.terminal.new) to open your vscode terminal. (You may already have one open, that's ok)\n    1. Click [here](command:workbench.action.debug.start) to launch the app locally.\n    1. Click [Open URL](command:auth0.lab.openEndpointByName?[\"Lab: Web App\"]) to open the app in your web browser.\n\n1. #### Visit the Application\nHere's that \"Uh Oh\" moment we warned you about. \n\n    The authorization server has issued an error: unauthorized_client: Callback URL mismatch. To correct this, we need to whitelist the URL that our application is running from within the Auth0 dashboard. \n    \n\n1. #### Let's fix this.\n    We'll provide the necessary URL's to our application configuration in the Auth0 tenant next, but before you go, copy your application's URL from the browser. We'll need it!"
+    },
+    {
+      "file": "src/web-app/index.js",
+      "line": 1,
+      "title": "Add the Callback and Allowed Logout URLs",
+      "description": "## Add the Callback and Allowed Logout URLs\nThe next few steps will require stepping out of vscode to make some configuration changes in your labs tenant in the Auth0 dashboard. \n\n1. #### Before moving forward let's do a little housekeeping:\n    1. Make sure everything here is saved by clicking [here](command:workbench.action.files.saveFiles).\n    1. Stop the debug session by clicking [here](workbench.action.debug.stop). We'll start it again after making these changes in our tenant.\n\n1. #### Log into your Auth0 dashboard.\n\n1. #### Make sure you're working in your 'labs' tenant.\n    ![Select labs tenant](./.auth0/lab/guides/images/working-with-applications-0.gif)\n\n1. #### Select the **Applications** drop-down menu in the left-side navigation, and select **Applications**\n    ![Open applications menu](./.auth0/lab/guides/images/working-with-applications-1.gif)\n\n1. #### Click into the configuration for the Web App.\n    ![Open the Web App settings](./.auth0/lab/guides/images/working-with-applications-2.gif)\n\n1. #### Scroll down to locate the Application URI's section.\n    ![Locate the Application URI section](./.auth0/lab/guides/images/working-with-applications-3.gif)\n\n1. #### Modify the Callback and Allowed Logout URLs.\n    1. Under the **Allowed Callback URLs** field, paste the URL from your application that you copied in the last step of the codetour. Then, append /callback to the end of it. \n    2. In the **Allowed Logout URLs** field, paste the URL again. No need to modify it this time.\n    3. Scroll to the bottom of the page and click the **Save Changes** button.\n\nWell done! Our Auth0 tenant configuration for the application is now configured to whitelist our application's callback and logout URL.\n\nIn the next step, we'll run our application again and log in!"
+    },
+    {
+      "file": "src/web-app/index.js",
+      "line": 1,
+      "description": "## Log in to the App with Auth0!\nNow that the authorization server (Auth0) knows where to expect our application's requests to come from, we should be able to load the application up amd log in. \n1. #### Re-Launch the App.\n    1. Click [here](command:workbench.action.debug.start) to launch the app locally.\n    1. Click [Open URL](command:auth0.lab.openEndpointByName?[\"Lab: Web App\"]) to open the app in your web browser.\n1. #### Create a new account.\n  We're going to log in to the application, but first, let's create a new user account so that your admin account can remain separate. \n    1. ##### Click the Sign-Up link and create a new account. \n    1. ##### If you have a Gmail account, (personal, or \"Google for Work\") append \"**+auth0labs**\" to create a Gmail alias for it. \n\n        **Example:** If my email is someone@gmail.com, it would become someone<b>+auth0labs</b>@gmail.com\nThis step will ensure that no wires are crossed with all the accounts you'll be setting up over the course of these labs. Any emails that your app or Auth0 generate will still come to your regular Gmail inbox, but the account will be listed separately in Auth0. We'll use this account later, so be certain to use a password that you will remember!\n    \n\n1. #### Log in! \n    You should be able to log into your Web Application now - Give it a try!",
+      "title": "Log in to the App with Auth0!"
+    },
+    {
+      "file": "src/web-app/index.js",
+      "line": 1,
+      "title": "View Your Profile",
+      "description": "## View Your Profile\nAfter authentication, the application displays the profile image associated with the authenticated user and addresses them by name. The username is now listed and links to a profile page displaying the user's OIDC profile information.\n\n1. #### View the OIDC profile information\n    Click the **username** link on the page to view the OIDC profile.\n2. #### Logout to end the session\n    After having a look through the information, click the Logout link to log out of the application. \n\n    Notice that you are immediately prompted to authenticate again. This is because we applied the auth middleware to all routes in the application. So, the auth middleware is intercepting all requests and forcing authentication.\n\n    Let's make some adjustments to the application to correct this."
+    },
+    {
+      "file": "src/web-app/index.js",
+      "line": 1,
+      "title": "Adjust Where Authentication Applies",
+      "description": "## Adjust Where Authentication Applies\nTypically, applications will have a mixture of public and priovate routes. Let's make some changes to our application that will allow users to visit the home page, but require authentication to view expenses and profile information.\n\nFirst, we'll update the authentication middleware configuration to add a new value that will make authentication optional globally.\n"
+    },
+    {
+      "file": "src/web-app/index.js",
+      "description": "## Enable Global Authentication Routing\nHere, we'll add code to the application that configures the middleware to make authentication optional across the entire application. In the app.use configuration block that we added previously, we'll add:\n\n``` jsx\n\nauthRequired: false,\n```\nto make this change.\n\\\n&nbsp;\n\\\nWith this done, all routes are public again. We'll need a way to explicitly make certain routes private. Thankfully, this functionality is supplied by the same express-openid-connect middleware! ",
+      "line": 50,
+      "selection": {
+        "start": {
+          "line": 47,
+          "character": 50
+        },
+        "end": {
+          "line": 47,
+          "character": 50
+        }
+      }
+    },
+    {
+      "file": "src/web-app/index.js",
+      "description": "## Enable Securing Specific Routes\nBefore we can configure the authorization middleware to allow us to secure specific routes, we need to add the **requiresAuth** parameter to our require statement.\n\n``` jsx\n, requiresAuth\n```\nto add this now.\n",
+      "line": 9,
+      "selection": {
+        "start": {
+          "line": 9,
+          "character": 13
+        },
+        "end": {
+          "line": 9,
+          "character": 13
+        }
+      }
+    },
+    {
+      "file": "src/web-app/index.js",
+      "description": "## Secure the User Route\nTo secure the user route, we'll add the requiresAuth middleware directly to it.\n\n``` jsx\n requiresAuth(),\n```\nto secure the route.",
+      "line": 75,
+      "selection": {
+        "start": {
+          "line": 75,
+          "character": 17
+        },
+        "end": {
+          "line": 75,
+          "character": 17
+        }
+      }
+    },
+    {
+      "file": "src/web-app/index.js",
+      "description": "## Secure the Expenses Route\nWe'll want to ensure unauthenticated users aren't able to view the Expenses, either. So we'll add the middleware to this route too.\n\n``` jsx\n requiresAuth(),\n```\n to secure the route.",
+      "line": 84,
+      "selection": {
+        "start": {
+          "line": 84,
+          "character": 21
+        },
+        "end": {
+          "line": 84,
+          "character": 21
+        }
+      }
+    },
+    {
+      "file": "src/web-app/index.js",
+      "line": 1,
+      "title": "Nice work!",
+      "description": "## Nice work!\n1. Save the changes you made to the routes by clicking here.\n1. Try to access the expenses route both authenticated and not authenticated.\n"
+    }
+  ]
+}
