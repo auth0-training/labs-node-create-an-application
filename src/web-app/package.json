@@ -1,11 +1,10 @@
 {
-  "name": "web-app-express",
-  "version": "5.0.0",
+  "name": "labs-node-create-an-application",
+  "version": "1.0.0",
   "private": true,
   "description": "Auth0 Labs Sample Web Application",
   "license": "MIT",
   "author": "Auth0",
-  "main": "index.js",
   "bugs": {
     "url": "https://github.com/auth0-training/labs-node-create-an-application/issues"
   },
