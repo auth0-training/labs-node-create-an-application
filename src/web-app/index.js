@@ -13,7 +13,7 @@ const {
   API_URL, // URL for Expenses API
   ISSUER_BASE_URL, // Auth0 Tenant Url
   CLIENT_ID, // Auth0 Web App Client
-  CLIENT_SECRET, // Auth0 Web App CLient Secret
+  CLIENT_SECRET, // Auth0 Web App Client Secret
   SESSION_SECRET, // Cookie Encryption Key
   PORT,
 } = require("./env-config");
