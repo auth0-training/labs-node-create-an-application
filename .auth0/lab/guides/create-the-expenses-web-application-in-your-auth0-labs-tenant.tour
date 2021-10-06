@@ -14,7 +14,7 @@
       "file": "src/web-app/index.js",
       "line": 1,
       "title": "Configure this Lab",
-      "description": "## Configure this Lab\nNow we'll run a few commands to ensure that the lab is set up correctly. Once you've run these, you'll be ready to move forward.\n\n1. Click [here](command:workbench.action.terminal.new) to open your terminal so that you can see when the subsequent commands are finished running. You may already have a terminal open - that's OK.\n1. Click [here](command:auth0.lab.configure) to leverage the Auth0 extension for vscode and the CLI to ensure the lab is set up correctly. \n1. Click [here](command:workbench.action.files.saveAll) to save this progress."
+      "description": "## Configure this Lab\nNow we'll run a few commands to ensure that the lab is set up correctly. Once you've run these, you'll be ready to move forward.\n\n1. Click [here](command:workbench.action.terminal.new) to open your terminal so that you can see when the subsequent commands are finished running. You may already have a terminal open - that's OK.\n1. Click [here](command:auth0.lab.localConfigure) to leverage the Auth0 Labs Extension for VSCode to ensure the lab is set up correctly."
     }
   ]
 }
