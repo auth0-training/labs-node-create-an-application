@@ -9,6 +9,7 @@
   "extensions": [
     "dbaeumer.vscode-eslint",
     "EditorConfig.EditorConfig",
+    "esbenp.prettier-vscode",
     "hjb2012.vscode-es6-string-html",
     "vsls-contrib.codetour",
     "mikestead.dotenv",
