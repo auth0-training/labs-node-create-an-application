@@ -18,7 +18,7 @@
   },
   "config": {
     "port": 7000,
-    "session_secret": "e6de1374433dde92a5bae567b56b01de32ad0d4f0115b7675f5b985720210f4c"
+    "session_secret": "a long, randomly-generated string stored in env"
   },
   "keywords": [
     "auth0",
