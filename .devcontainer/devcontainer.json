@@ -21,5 +21,6 @@
   ],
   "shutdownAction": "stopCompose",
   "postCreateCommand": "npm run init",
+  "waitFor": "postCreateCommand",
   "remoteUser": "node"
 }
