@@ -5,7 +5,7 @@
   "dockerComposeFile": "docker-compose.yml",
   "service":"lab",
   "workspaceFolder": "/workspace",
-  "settings": {},
+  "settings": { },
   "extensions": [
     "dbaeumer.vscode-eslint",
     "EditorConfig.EditorConfig",
