@@ -5,7 +5,7 @@
   "dockerComposeFile": "docker-compose.yml",
   "service":"lab",
   "workspaceFolder": "/workspace",
-  "settings": {},
+  "settings": { },
   "extensions": [
     "dbaeumer.vscode-eslint",
     "EditorConfig.EditorConfig",
@@ -20,6 +20,7 @@
     7000, //Web App
   ],
   "shutdownAction": "stopCompose",
-  "postCreateCommand": "npm run init",
+  "postStartCommand": "npm run init",
+  "waitFor": "postStartCommand",
   "remoteUser": "node"
 }
