@@ -17,7 +17,7 @@
     "humao.rest-client",
   ],
   "forwardPorts": [
-    7000, //Web App
+    37500, //Web App
   ],
   "shutdownAction": "stopCompose",
   "postStartCommand": "npm run init",

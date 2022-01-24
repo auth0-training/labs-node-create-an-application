@@ -11,7 +11,7 @@
         "ISSUER_BASE_URL": "$tenant_base_url",
         "CLIENT_ID": "$client_id",
         "SESSION_SECRET": "a long, randomly-generated string stored in env",
-        "PORT": 7000
+        "PORT": 37500
       }
     }
   ]
