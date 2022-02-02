@@ -17,7 +17,7 @@
     "start": "PORT=$npm_package_config_port SESSION_SECRET=$npm_package_config_session_secret node index"
   },
   "config": {
-    "port": 7000,
+    "port": 37500,
     "session_secret": "a long, randomly-generated string stored in env"
   },
   "keywords": [

@@ -1,6 +1,6 @@
 {
   "name": "Lab Node Create an Application",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "unauthenticatedTour": ".auth0/lab/guides/signin.tour",
   "postConfigureTour": ".auth0/lab/guides/create-the-expenses-web-application-in-your-auth0-labs-tenant.tour",
   "clients": [
@@ -11,7 +11,7 @@
         "ISSUER_BASE_URL": "$tenant_base_url",
         "CLIENT_ID": "$client_id",
         "SESSION_SECRET": "a long, randomly-generated string stored in env",
-        "PORT": 7000
+        "PORT": 37500
       }
     }
   ]
