@@ -31,14 +31,14 @@
     "labs"
   ],
   "dependencies": {
-    "axios": "^0.23.0",
-    "cookie-parser": "~1.4.5",
-    "debug": "~4.3.2",
-    "dotenv": "10.0.0",
-    "express": "^4.17.1",
-    "express-openid-connect": "^2.5.1",
+    "axios": "^0.26.0",
+    "cookie-parser": "~1.4.6",
+    "debug": "~4.3.3",
+    "dotenv": "16.0.0",
+    "express": "^4.17.3",
+    "express-openid-connect": "^2.7.0",
     "express-session": "^1.17.2",
-    "http-errors": "~1.8.0",
+    "http-errors": "~2.0.0",
     "morgan": "~1.10.0",
     "pug": "3.0.2"
   }
