@@ -11,7 +11,7 @@
     {
       "file": "src/web-app/index.js",
       "description": "## Edit the App Code to Require the Middleware\n\nHere, we'll add the OpenID Connect Express middleware to our code, to enable it for use by the application.\n\nClick Insert Code below to drop this straight in.\n\n``` jsx\nconst { auth } = require(\"express-openid-connect\");\n\n```",
-      "line": 10,
+      "line": 11,
       "selection": {
         "start": {
           "line": 9,
@@ -26,7 +26,7 @@
     {
       "file": "src/web-app/index.js",
       "description": "## Configure the App to use the Authentication Middleware\nIn order for our application to use the auth middleware to route requests, it must be supplied with certain keys. Let's add the necessary code, below, then walk through each of the required keys.\n\n``` jsx\n\napp.use(\n    auth({\n        secret: SESSION_SECRET,\n        auth0Logout: true,\n        baseURL: APP_URL,\n        issuerBaseURL: ISSUER_BASE_URL,\n        clientID: CLIENT_ID,\n    })\n);\n\n```\n to add it to the application.",
-      "line": 40,
+      "line": 50,
       "selection": {
         "start": {
           "line": 40,
@@ -166,7 +166,7 @@
     {
       "file": "src/web-app/index.js",
       "description": "## Enable Global Authentication Routing\nHere, we'll add code to the application that configures the middleware to make authentication optional across the entire application. In the app.use configuration block that we added previously, we'll add:\n\n``` jsx\n\nauthRequired: false,\n```\nto make this change.\n\\\n&nbsp;\n\\\nWith this done, all routes are public again. We'll need a way to explicitly make certain routes private. Thankfully, this functionality is supplied by the same express-openid-connect middleware! ",
-      "line": 48,
+      "line": 49,
       "selection": {
         "start": {
           "line": 47,
