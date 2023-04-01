@@ -9,6 +9,15 @@ const {
 
 const appUrl = `http://localhost:${PORT}`;
 
+function checkEnvironment(){
+  // Use the Codespace App URL if we're in the Codespace environment
+  if(process.env.CODESPACE_NAME){
+    return `https://${process.env.CODESPACE_NAME}-${PORT}.${process.env.GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}`
+  }
+  // otherwise use the localhost App URL
+  return appUrl;
+}
+
 function checkUrl() {
   return (req, res, next) => {
     const host = req.headers.host;
@@ -38,7 +47,7 @@ console.log('----------------------------------\n');
 
 module.exports = {
   checkUrl,
-  APP_URL: appUrl,
+  APP_URL: checkEnvironment(),
   API_URL: removeTrailingSlashFromUrl(API_URL),
   ISSUER_BASE_URL: removeTrailingSlashFromUrl(ISSUER_BASE_URL),
   CLIENT_ID: CLIENT_ID,
