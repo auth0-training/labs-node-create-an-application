@@ -25,7 +25,7 @@
     },
     {
       "file": "src/web-app/index.js",
-      "description": "## Configure the App to use the Authentication Middleware\nIn order for our application to use the auth middleware to route requests, it must be supplied with certain keys. Let's add the necessary code, below, then walk through each of the required keys.\n\n``` jsx\n\napp.use(\n    auth({\n        secret: SESSION_SECRET,\n        auth0Logout: true,\n        baseURL: APP_URL,\n        issuerBaseURL: ISSUER_BASE_URL,\n        clientID: CLIENT_ID,\n    })\n);\n\n```\n to add it to the application.",
+      "description": "## Configure the App to use the Authentication Middleware\nIn order for our application to use the auth middleware to route requests, it must be supplied with certain keys. Let's add the necessary code, below, then walk through each of the required keys.\n\n``` jsx\n\napp.use(\n    auth({\n        authorizationParams: {\n            response_type: 'code',\n        },\n        secret: SESSION_SECRET,\n        auth0Logout: true,\n        baseURL: APP_URL,\n        issuerBaseURL: ISSUER_BASE_URL,\n        clientID: CLIENT_ID,\n    })\n);\n\n```\n to add it to the application.",
       "line": 40,
       "selection": {
         "start": {
