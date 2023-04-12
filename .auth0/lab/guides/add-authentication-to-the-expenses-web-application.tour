@@ -11,7 +11,7 @@
     {
       "file": "src/web-app/index.js",
       "description": "## Edit the App Code to Require the Middleware\n\nHere, we'll add the OpenID Connect Express middleware to our code, to enable it for use by the application.\n\nClick Insert Code below to drop this straight in.\n\n``` jsx\nconst { auth } = require(\"express-openid-connect\");\n\n```",
-      "line": 15,
+      "line": 11,
       "selection": {
         "start": {
           "line": 9,
@@ -26,7 +26,7 @@
     {
       "file": "src/web-app/index.js",
       "description": "## Configure the App to use the Authentication Middleware\nIn order for our application to use the auth middleware to route requests, it must be supplied with certain keys. Let's add the necessary code, below, then walk through each of the required keys.\n\n``` jsx\n\napp.use(\n    auth({\n        authorizationParams: {\n            response_type: 'code',\n        },\n        secret: SESSION_SECRET,\n        auth0Logout: true,\n        baseURL: APP_URL,\n        issuerBaseURL: ISSUER_BASE_URL,\n        clientID: CLIENT_ID,\n    })\n);\n\n```\n to add it to the application.",
-      "line": 142,
+      "line": 54,
       "selection": {
         "start": {
           "line": 41,
@@ -59,8 +59,9 @@
       "line": 4
     },
     {
+      "file": "src/web-app/index.js",
       "title": "About the response_type",
-      "description": "## About the response_type\n\nThe `response_type` parameter indicates which grant type our application uses. In this case, `code` indicates we want an Auth Code",
+      "description": "## About the response_type\n\n**response_type=code** indicates that the application expects to receive an authorization code. Your application will exchange the authorization code for an access token by making a POST request to the authorization server's token endpoint.",
       "selection": {
         "start": {
           "line": 44,
