@@ -211,14 +211,14 @@
     {
       "file": "src/web-app/index.js",
       "description": "## Secure the User Route\nTo secure the user route, we'll add the **requiresAuth** middleware directly to it.\n\n``` jsx\n requiresAuth(),\n```\nto secure the route.",
-      "line": 88,
+      "line": 79,
       "selection": {
         "start": {
-          "line": 88,
+          "line": 79,
           "character": 17
         },
         "end": {
-          "line": 88,
+          "line": 79,
           "character": 17
         }
       }
@@ -226,14 +226,14 @@
     {
       "file": "src/web-app/index.js",
       "description": "## Secure the Expenses Route\nWe'll want to ensure unauthenticated users aren't able to view the Expenses, either. So we'll add the middleware to this route too.\n\n``` jsx\n requiresAuth(),\n```\n to secure the route.",
-      "line": 79,
+      "line": 88,
       "selection": {
         "start": {
-          "line": 79,
+          "line": 88,
           "character": 21
         },
         "end": {
-          "line": 79,
+          "line": 88,
           "character": 21
         }
       }
