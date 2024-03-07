@@ -6,6 +6,7 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const path = require("path");
 const { createServer } = require("http");
+const { auth } = require("express-openid-connect");
 
 
 const {
@@ -36,6 +37,19 @@ app.use(
     resave: false,
     saveUninitialized: true,
   })
+);
+
+app.use(
+    auth({
+        authorizationParams: {
+            response_type: 'code',
+        },
+        secret: SESSION_SECRET,
+        auth0Logout: true,
+        baseURL: APP_URL,
+        issuerBaseURL: ISSUER_BASE_URL,
+        clientID: CLIENT_ID,
+    })
 );
 
 const expenses = [
