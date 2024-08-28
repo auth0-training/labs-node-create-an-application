@@ -1,14 +1,14 @@
-[![Auth0 Training](https://cdn.auth0.com/website/training/labs/ilt/auth0training-okta.png "Auth0 Training by Okta")](https://training.auth0.com)
-
 # Lab Node Create an Application
 
-In this hands-on lab, learners will use Auth0 to add authentication to a web application. By the end, users will be able to to authenticate to the application using Auth0's Universal Login Page.
+In this [Okta Training](https://www.okta.com/training/) hands-on lab, learners will use Auth0 to add authentication to a web application. By the end, users will be able to to authenticate to the application using Auth0's Universal Login Page.
 
 ## Requirements
 
-1. A GitHub account: Our labs use GitHub Codespaces, so you'll need a GitHub account to access them. Create a free account [here](https://docs.github.com/en/get-started/signing-up-for-github/signing-up-for-a-new-github-account).
-2. An Auth0 account: You'll also need an Auth0 account. If you do not already have one, you can create a free one [here](https://auth0.com/signup).
+1. A GitHub account with Codespaces access (you can use the free plan, which gives you 60 hours of use per month). Create a free account [here](https://docs.github.com/en/get-started/signing-up-for-github/signing-up-for-a-new-github-account).
 
+    **⚠️ Note to internal Okta employees: Do NOT use your EMU (Enterprise-managed user) account since Codespaces are disabled.**
+
+2. An Auth0 account: You'll also need an Auth0 account. If you do not already have one, you can create a free one [here](https://auth0.com/signup).
 ## Accessing and Working with Auth0 Labs
 
 1. **Fork this lab repo to your GitHub account:** Click the "Fork" button located in the top right corner of the GitHub page. On the resulting page, under "Owner," select the dropdown menu and choose yourself as the owner for the forked repository. Then click the “Create fork” button. After a moment or two, you'll land on your fork of the repository. This fork now belongs to you, and you can revisit it later at any time.
