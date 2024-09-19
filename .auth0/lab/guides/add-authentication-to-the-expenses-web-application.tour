@@ -255,6 +255,14 @@
     {
       "title": "Create a Machine-to-Machine Application",
       "description": "## Create a Machine-to-Machine Application\n\nAn Auth0 Form must be registered as a Machine-to-machine (M2M) application with your Auth0 tenant to grant it scopes on the Auth0 Management API. This is necessary for Auth0 Forms to perform operations on user data.\n\n1. Navigate to **Applications > Applications** from your Auth0 Management Dashboard.\n2. Select **+ Create Application** and name it **FormsM2MClient**.\n3. Select Machine to Machine Application and then **Create**.\n4. In the *Authorize Machine to Machine Application* view, select the Auth0 Management API.\n5. Select the following *Permissions*:\n    - read:users\n    - update:users\n    - create:users\n    - read:users_app_metadata\n    - create:users_app_metadata\n    - update:users_app_metadata\n    - delete:users_app_metadata\n6. Select **Authorize**.\n7. Note down the following data under this application's settings as they will be used later:\n    - Domain\n    - Client ID\n    - Client Secret"
+    },
+    {
+      "title": "Add a Vault Connection",
+      "description": "## Add a Vault Connection\n\n1. Open the Form editor by selecting **Actions > Forms** from your Auth0 Management Dashboard.\n2. From the top left corner, open the Vault page by selecting **{tenantName} > Vault**.\n3. Select **+ Add Vault Connection**.\n4. Select Auth0 and then **Continue**.\n5. Name this connection **Auth0 M2M Client** and select **Continue**.\n6. Enter the credentials you saved for the M2M applicataion you created earlier.\n7. Select **Add Vault Connection**."
+    },
+    {
+      "title": "Create an Auth0 Form",
+      "description": "## Create an Auth0 Form\n\nLet's use Auth0 Forms to build a progressive profile form that requires the users to input their job title.\n\n1. From the Form editor, select **Create form**.\n2. Rather than starting from scratch, Forms provide Templates that accelerate the development of new flows. Select **Use a template**.\n3. Select **Progressive profiling** from the list of templates.\n4. Rename your Form **Web App Progressive Profile**."
     }
   ]
 }
