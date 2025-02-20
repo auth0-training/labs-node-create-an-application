@@ -1,6 +1,6 @@
 # Lab: Configure Web Applications with Auth0
 
-In this [Okta Training](https://www.okta.com/training/) hands-on lab, learners will use Auth0 to add authentication to a web application. By the end, users will be able to to authenticate to the application using Auth0's Universal Login Page.
+In this [Okta Learning](https://learning.okta.com/) hands-on lab, learners will use Auth0 to add authentication to a web application. By the end, users will be able to to authenticate to the application using Auth0's Universal Login Page.
 
 --- 
 
