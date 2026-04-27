@@ -64,11 +64,11 @@
       "description": "## About the response_type\n\n**response_type=code** indicates that the application expects to receive an authorization code. Your application will exchange the authorization code for an ID token and access token by making a POST request to the authorization server's token endpoint.",
       "selection": {
         "start": {
-          "line": 44,
+          "line": 45,
           "character": 1
         },
         "end": {
-          "line": 44,
+          "line": 45,
           "character": 28
         }
       }
@@ -76,14 +76,14 @@
     {
       "file": "src/web-app/index.js",
       "description": "## About the secret key\n\nThis is used to derive an encryption key for the session cookie stored by Express's session middleware. Note that the same value is used by the session middleware. The auth middleware will use this secret value to sign the transient cookies used by the login callback. \n\nThe value can be obtained directly from the **SESSION_SECRET** environment variable and this key can be omitted. We are passing this directly for this sample lab to make it clear the value is being used by the middleware. \n\nThese cookies are written to the user's browser. If there are multiple webservers that need to interpret the cookie, it's important that the session secret be the same on each respective environment.",
-      "line": 46,
+      "line": 47,
       "selection": {
         "start": {
-          "line": 46,
+          "line": 47,
           "character": 1
         },
         "end": {
-          "line": 46,
+          "line": 47,
           "character": 28
         }
       }
@@ -91,21 +91,6 @@
     {
       "file": "src/web-app/index.js",
       "description": "## About the baseURL\nThis is the publicly accessible URL for the application. The middleware uses this to construct URLs pointing back to the application for consumption by the authorization server. \n\nSimilar to the session secret, the value can be obtained directly from the **APP_URL** environment variable and this key can be omitted. We are passing this directly for this sample lab to make it clear the value is being used by the middleware.",
-      "line": 48,
-      "selection": {
-        "start": {
-          "line": 48,
-          "character": 1
-        },
-        "end": {
-          "line": 48,
-          "character": 22
-        }
-      }
-    },
-    {
-      "file": "src/web-app/index.js",
-      "description": "## About the issuerBaseURL\nThis is the fully qualified domain of the OpenID Connect provider that the application is configured to use; in this case your Auth0 tenant.\n\nThe middleware uses the **issuerBaseURL** to download the OpenID Connect configuration from the discovery document, available at the URL: \n\n`https://{your-auth0-domain}/.well-known/openid-configuration`\n\nThis discovery document is a standard OpenID Connect mechanism used to publish relevant discovery metadata of the OpenID Connect provider (Auth0), including a link to what keys should be used for validating the tokens it issues.\n\nOnce again, the value can be obtained directly from the **ISSUER_BASE_URL** environment variable and this key can be omitted. We are passing this directly for this sample lab to make it clear the value is being used by the middleware.",
       "line": 49,
       "selection": {
         "start": {
@@ -114,13 +99,13 @@
         },
         "end": {
           "line": 49,
-          "character": 36
+          "character": 22
         }
       }
     },
     {
       "file": "src/web-app/index.js",
-      "description": "## About the clientID\nThe **clientID** is created on the authorization server (Auth0) and must be provided in each request so that the authorization server knows what application the authentication request is for, so you can say it is the unique identifier of the application.\n\nAs with the other keys, the value can be obtained directly from the **CLIENT_ID** environment variable and this key can be omitted. We are passing this directly for this sample lab to make it clear the value is being used by the middleware.\n\n\n\n    ",
+      "description": "## About the issuerBaseURL\nThis is the fully qualified domain of the OpenID Connect provider that the application is configured to use; in this case your Auth0 tenant.\n\nThe middleware uses the **issuerBaseURL** to download the OpenID Connect configuration from the discovery document, available at the URL: \n\n`https://{your-auth0-domain}/.well-known/openid-configuration`\n\nThis discovery document is a standard OpenID Connect mechanism used to publish relevant discovery metadata of the OpenID Connect provider (Auth0), including a link to what keys should be used for validating the tokens it issues.\n\nOnce again, the value can be obtained directly from the **ISSUER_BASE_URL** environment variable and this key can be omitted. We are passing this directly for this sample lab to make it clear the value is being used by the middleware.",
       "line": 50,
       "selection": {
         "start": {
@@ -129,6 +114,21 @@
         },
         "end": {
           "line": 50,
+          "character": 36
+        }
+      }
+    },
+    {
+      "file": "src/web-app/index.js",
+      "description": "## About the clientID\nThe **clientID** is created on the authorization server (Auth0) and must be provided in each request so that the authorization server knows what application the authentication request is for, so you can say it is the unique identifier of the application.\n\nAs with the other keys, the value can be obtained directly from the **CLIENT_ID** environment variable and this key can be omitted. We are passing this directly for this sample lab to make it clear the value is being used by the middleware.\n\n\n\n    ",
+      "line": 51,
+      "selection": {
+        "start": {
+          "line": 51,
+          "character": 1
+        },
+        "end": {
+          "line": 51,
           "character": 25
         }
       }
@@ -181,14 +181,14 @@
     {
       "file": "src/web-app/index.js",
       "description": "## Enable Global Authentication Routing\nHere, we'll add code to the application that configures the middleware to make authentication optional across the entire application. In the app.use configuration block that we added previously, we'll add:\n\n``` jsx\n\nauthRequired: false,\n```\nto make this change.\n\\\n&nbsp;\n\\\nWith this done, all routes are public again. We'll need a way to explicitly make certain routes private. Thankfully, this functionality is supplied by the same express-openid-connect middleware! ",
-      "line": 53,
+      "line": 51,
       "selection": {
         "start": {
-          "line": 50,
+          "line": 51,
           "character": 50
         },
         "end": {
-          "line": 50,
+          "line": 51,
           "character": 50
         }
       }
@@ -211,14 +211,14 @@
     {
       "file": "src/web-app/index.js",
       "description": "## Secure the User Route\nTo secure the user route, we'll add the **requiresAuth** middleware directly to it.\n\n``` jsx\n requiresAuth(),\n```\nto secure the route.",
-      "line": 77,
+      "line": 78,
       "selection": {
         "start": {
-          "line": 77,
+          "line": 78,
           "character": 17
         },
         "end": {
-          "line": 77,
+          "line": 78,
           "character": 17
         }
       }
@@ -226,14 +226,14 @@
     {
       "file": "src/web-app/index.js",
       "description": "## Secure the Expenses Route\nWe'll want to ensure unauthenticated users aren't able to view the Expenses, either. So we'll add the middleware to this route too.\n\n``` jsx\n requiresAuth(),\n```\n to secure the route.",
-      "line": 86,
+      "line": 88,
       "selection": {
         "start": {
-          "line": 86,
+          "line": 88,
           "character": 21
         },
         "end": {
-          "line": 86,
+          "line": 88,
           "character": 21
         }
       }
