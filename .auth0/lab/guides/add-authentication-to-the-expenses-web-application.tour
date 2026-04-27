@@ -11,7 +11,7 @@
     {
       "file": "src/web-app/index.js",
       "description": "## Edit the App Code to Require the Middleware\n\nHere, we'll add the OpenID Connect Express middleware to our code, to enable it for use by the application.\n\nClick Insert Code below to drop this straight in.\n\n``` jsx\nconst { auth } = require(\"express-openid-connect\");\n\n```",
-      "line": 11,
+      "line": 9,
       "selection": {
         "start": {
           "line": 9,
