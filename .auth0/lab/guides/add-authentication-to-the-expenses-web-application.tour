@@ -200,22 +200,22 @@
     },
     {
       "file": "src/web-app/index.js",
-      "description": "## Enable Global Authentication Routing\nHere, we'll add code to the application that configures the middleware to make authentication optional across the entire application. In the app.use configuration block that we added previously, we'll add:\n\n``` jsx\n\nauthRequired: false,\n```\nto make this change.\n\\\n&nbsp;\n\\\nWith this done, all routes are public again. We'll need a way to explicitly make certain routes private. Thankfully, this functionality is supplied by the same express-openid-connect middleware! ",
+      "description": "## Enable global authentication routing\nHere, we'll add code to the application that configures the middleware to make authentication optional across the entire application. In the `app.use` configuration block that we added previously, we'll add:\n\n``` jsx\n\nauthRequired: false,\n```\n\n>Select the **Insert Code** link to make this change.\n\n\nWith this done, all routes are public again. We'll need a way to explicitly make certain routes private. Thankfully, this functionality is supplied by the same express-openid-connect middleware! ",
       "line": 50,
       "selection": {
         "start": {
-          "line": 50,
-          "character": 50
+          "line": 9,
+          "character": 1
         },
         "end": {
-          "line": 50,
-          "character": 50
+          "line": 9,
+          "character": 54
         }
       }
     },
     {
       "file": "src/web-app/index.js",
-      "description": "## Enable Securing Specific Routes\nBefore we can configure the authorization middleware to allow us to secure specific routes, we need to import the **requiresAuth** middleware to our require statement.\n\nThis middleware is intended to be applied to the specific routes that require an authenticated user.\n\n``` jsx\n, requiresAuth\n```\nto add this now.\n",
+      "description": "## Enable securing specific routes\nBefore we can configure the authorization middleware to allow us to secure specific routes, we need to import the **requiresAuth** middleware to our require statement.\n\nThis middleware is intended to be applied to the specific routes that require an authenticated user.\n\n``` jsx\n, requiresAuth\n```\nto add this now.\n",
       "line": 9,
       "selection": {
         "start": {
@@ -230,7 +230,7 @@
     },
     {
       "file": "src/web-app/index.js",
-      "description": "## Secure the User Route\nTo secure the user route, we'll add the **requiresAuth** middleware directly to it.\n\n``` jsx\n requiresAuth(),\n```\nto secure the route.",
+      "description": "## Secure the user route\nTo secure the `user` route, we'll add the `requiresAuth` middleware directly to it.\n\n``` jsx\napp.get(\"/user\", requiresAuth(), async (req, res) => {\n```\nto secure the route.",
       "line": 78,
       "selection": {
         "start": {
@@ -245,7 +245,7 @@
     },
     {
       "file": "src/web-app/index.js",
-      "description": "## Secure the Expenses Route\nWe'll want to ensure unauthenticated users aren't able to view the Expenses, either. So we'll add the middleware to this route too.\n\n``` jsx\n requiresAuth(),\n```\n to secure the route.",
+      "description": "## Secure the expenses route\nWe'll want to ensure unauthenticated users aren't able to view the `expenses` route either. So we'll add the `requiresAuth` middleware to this route too.\n\n``` jsx\n app.get(\"/expenses\", requiresAuth(), async (req, res, next) => {\n```\n to secure the route.",
       "line": 87,
       "selection": {
         "start": {
@@ -262,7 +262,7 @@
       "file": "",
       "line": 1,
       "title": "Nice work!",
-      "description": "## Nice work!\n1. Save the changes you made to the routes by clicking [here](command:workbench.action.files.saveFiles).\n1. Click [here](command:workbench.action.debug.start) to launch the app locally.\n1. Click [Open URL](command:auth0.lab.openEndpointByName?[\"Lab: Web App\"]) to open the app in your web browser.\n1. Try to access the expenses route both authenticated and not authenticated.\n\nYou've successfully secured the User and Expenses routes! "
+      "description": "## Nice work!\n1. Save the changes you made to the routes by clicking [here](command:workbench.action.files.saveFiles).\n1. Slect [this link](command:workbench.action.debug.start) to launch the app locally.\n1. Select [this link](command:auth0.lab.openEndpointByName?[\"Lab: Web App\"]) to open the app in your web browser.\n1. Try to access the expenses route both authenticated and not authenticated.\n\nYou've successfully secured the User and Expenses routes! "
     }
   ]
 }
