@@ -235,11 +235,11 @@
       "selection": {
         "start": {
           "line": 78,
-          "character": 17
+          "character": 0
         },
         "end": {
           "line": 78,
-          "character": 17
+          "character": 100
         }
       }
     },
@@ -250,11 +250,11 @@
       "selection": {
         "start": {
           "line": 87,
-          "character": 21
+          "character": 0
         },
         "end": {
           "line": 87,
-          "character": 21
+          "character": 100
         }
       }
     },
@@ -262,7 +262,7 @@
       "file": "",
       "line": 1,
       "title": "Nice work!",
-      "description": "## Nice work!\n1. Save the changes you made to the routes by clicking [here](command:workbench.action.files.saveFiles).\n1. Slect [this link](command:workbench.action.debug.start) to launch the app locally.\n1. Select [this link](command:auth0.lab.openEndpointByName?[\"Lab: Web App\"]) to open the app in your web browser.\n1. Try to access the expenses route both authenticated and not authenticated.\n\nYou've successfully secured the User and Expenses routes! "
+      "description": "## Nice work!\n1. Save the changes you made to the routes by clicking [here](command:workbench.action.files.saveFiles).\n1. Select [this link](command:workbench.action.debug.start) to launch the app locally.\n1. Select [this link](command:auth0.lab.openEndpointByName?[\"Lab: Web App\"]) to open the app in your web browser.\n1. Try to access the expenses route both authenticated and not authenticated.\n\nYou've successfully secured the User and Expenses routes! "
     }
   ]
 }
