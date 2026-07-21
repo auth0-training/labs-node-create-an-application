@@ -183,7 +183,7 @@
     {
       "file": "",
       "line": 1,
-      "description": "## Log in to the app with Auth0\nNow that the authorization server (Auth0) knows where to expect our application's requests to come from, we should be able to load the application up and log in. \n\n1. Select [this link](command:workbench.action.debug.start) to launch the app locally.\n1. Select [this link](command:auth0.lab.openEndpointByName?[\"Lab: Web App\"]) to open the app in your web browser.\n1. Select the **Sign-Up** link and create a new account. We recommend that you use a Gmail alias for this such as username+**auth0labs**@gmail.com.\n    > Do not use the **Continue with Google** button, as the Single Sign-On can skip over some of the learning opportunities in this lab.\n    \nOnce the account is created, you will be authenticated and returned to the application. ",
+      "description": "## Log in to the app with Auth0\nNow that the authorization server (Auth0) knows where to expect our application's requests to come from, we should be able to load the application up and log in. \n\n1. Select [this link](command:workbench.action.debug.start) to launch the app locally.\n1. Select [this link](command:auth0.lab.openEndpointByName?[\"Lab: Web App\"]) to open the app in your web browser.\n1. Select the **Sign up** link and create a new account. We recommend that you use a Gmail alias for this such as username+**auth0labs**@gmail.com.\n    > Do not use the **Continue with Google** button, as the Single Sign-On can skip over some of the learning opportunities in this lab.\n    \nOnce the account is created, you will be authenticated and returned to the application. ",
       "title": "Log in to the app with Auth0"
     },
     {
@@ -262,7 +262,7 @@
       "file": "",
       "line": 1,
       "title": "Nice work!",
-      "description": "## Nice work!\n1. Save the changes you made to the routes by clicking [here](command:workbench.action.files.saveFiles).\n1. Select [this link](command:workbench.action.debug.start) to launch the app locally.\n1. Select [this link](command:auth0.lab.openEndpointByName?[\"Lab: Web App\"]) to open the app in your web browser.\n1. Try to access the expenses route both authenticated and not authenticated.\n\nYou've successfully secured the User and Expenses routes! "
+      "description": "## Final test\n\n1. Select [this link](command:workbench.action.debug.start) to launch the app locally.\n1. Select [this link](command:auth0.lab.openEndpointByName?[\"Lab: Web App\"]) to open the app in your web browser.\n1. Try to access the expenses route and you should be prompted for authentication. Log in with the user you created in a previous step.\n1. After you successfully log in and view expenses, log out.\n1. You should now see that when you log out, you land back on the homepage in an unauthenticated view.\n\n> You've successfully secured the `user` and `expenses` routes! "
     }
   ]
 }
