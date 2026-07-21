@@ -1,6 +1,6 @@
 {
   "$schema": "https://aka.ms/codetour-schema",
-  "title": "2: Add Authentication to the Expenses Web Application",
+  "title": "2: Add authentication to the Expenses Web Application",
   "steps": [
     {
       "file": "",
@@ -55,7 +55,7 @@
     },
     {
       "file": "src/web-app/.env",
-      "description": "## Examine the Environment Variables\nIn the last step, you clicked a command that leveraged the Auth0 Labs Extension for VSCode to reach out to your tenant and retrieve the necessary values to configure this local environment. The values in this .env file are unique to your Auth0 tenant, and are available to your application as environment variables when the application is launched.\n\nLet's go back to our application code and talk about the keys we've added to the middleware configuration.",
+      "description": "## Examine the environment variables\nIn the last step, you clicked a command that leveraged the Auth0 Labs Extension for VSCode to reach out to your tenant and retrieve the necessary values to configure this local environment. The values in this .env file are unique to your Auth0 tenant, and are available to your application as environment variables when the application is launched.\n\nLet's go back to our application code and talk about the keys we've added to the middleware configuration.",
       "line": 4,
       "selection": {
         "start": {

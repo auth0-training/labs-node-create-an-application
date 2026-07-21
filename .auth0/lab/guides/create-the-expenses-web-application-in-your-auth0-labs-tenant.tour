@@ -2,7 +2,7 @@
   "$schema": "https://aka.ms/codetour-schema",
   "title": "1: Create the Expenses Web Application in your Auth0 Tenant",
   "isPrimary": true,
-  "nextTour": "2: Add Authentication to the Expenses Web Application",
+  "nextTour": "2: Add authentication to the Expenses Web Application",
   "steps": [
     {
       "file": "",
