@@ -201,14 +201,14 @@
     {
       "file": "src/web-app/index.js",
       "description": "## Enable global authentication routing\nHere, we'll add code to the application that configures the middleware to make authentication optional across the entire application. In the `app.use` configuration block that we added previously, we'll add:\n\n``` jsx\n\nauthRequired: false,\n```\n\n>Select the **Insert Code** link to make this change.\n\n\nWith this done, all routes are public again. We'll need a way to explicitly make certain routes private. Thankfully, this functionality is supplied by the same express-openid-connect middleware! ",
-      "line": 51,
+      "line": 41,
       "selection": {
         "start": {
-          "line": 9,
+          "line": 41,
           "character": 1
         },
         "end": {
-          "line": 9,
+          "line": 41,
           "character": 54
         }
       }
