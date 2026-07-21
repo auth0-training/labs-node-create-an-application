@@ -168,7 +168,17 @@
       "file": "",
       "line": 1,
       "title": "Add the Callback and Allowed Logout URLs",
-      "description": "## Add the Callback and Allowed Logout URLs\nThe next few steps will require stepping out of VSCode to make some configuration changes in your tenant in the Auth0 dashboard. \n\n1. #### Before moving forward let's do a little housekeeping:\n    1. Make sure everything here is saved by clicking [here](command:workbench.action.files.saveFiles).\n    1. Stop the debug session by clicking [here](command:workbench.action.debug.stop). We'll start it again after making these changes in our tenant.\n\n1. #### Log into your Auth0 dashboard.\n\n1. #### Make sure you're working in your *dev-* tenant.\n1. #### Select the _Applications_ drop-down menu in the left-side navigation, and select _Applications_\n    ![Open applications menu](https://cdn.auth0.com/website/a0fun/v2/working-with-applications-1.gif)\n\n1. #### Click into the configuration for the Lab: Web App.\n    ![Open the Web App settings](https://cdn.auth0.com/website/auth0/labs/ilt/wwa-1.gif)\n\n1. #### Scroll down to locate the Application URI's section.\n    ![Locate the Application URI section](https://cdn.auth0.com/website/auth0/labs/ilt/working-with-applications.gif)\n\n1. #### Modify the Callback and Allowed Logout URLs.\n    1. Under the _Allowed Callback URLs_ field, paste the URL from your application that you copied in the last step. \n    1. For the _Allowed Logout URLs_, you will use the base URL for the application. Paste the same URL as in the previous step, but remove `/callback`.\n    1. Scroll to the bottom of the page and click the _Save Changes_ button.\n\nWell done! Our Auth0 tenant configuration for the application is now configured to allowlist our application's callback and logout URLs.\n\nIn the next step, we'll run our application again and log in!"
+      "description": "## Add the Callback and Allowed Logout URLs\nThe next few steps will require stepping out of VSCode to make some configuration changes in your tenant in the Auth0 dashboard. \n\n1. Stop the debug session by clicking [here](command:workbench.action.debug.stop). We'll start it again after making these changes in our tenant.\n\n1. Log in to your Auth0 dashboard; make sure you have your default **dev-** tenant selected.\n \n1.  Go to **Applications** > **Applications** and select **Lab: Web App**.\n\n\n1.  Scroll down to locate the Application URI's section and modify the **Allowed Callback URLs** and **Allowed Logout URLs** as follows:\n    - **Allowed Callback URLs**: Paste in the URL you copied from the **Callback URL mismatch** error in the last step.\n    - **Allowed Logout URLs**: The same URL as above, but with `/callback` removed.\n\n1. Save these changes.\n\nYour Auth0 tenant configuration for the application is now configured to allowlist our application's callback and logout URLs. In the next step, we'll run our application again and log in!",
+      "selection": {
+        "start": {
+          "line": 17,
+          "character": 182
+        },
+        "end": {
+          "line": 17,
+          "character": 189
+        }
+      }
     },
     {
       "file": "",
