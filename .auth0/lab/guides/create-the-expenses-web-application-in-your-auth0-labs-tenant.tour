@@ -9,12 +9,6 @@
       "line": 1,
       "title": "Register a Regular Web App in your tenant",
       "description": "## Register a Regular Web App in your tenant\nBefore you can begin configuring the application for authentication, it must be registered in the Auth0 dashboard. Let's do that now.\n\n1. Log in to your Auth0 dashboard at [manage.auth0.com](https://manage.auth0.com). \n\n1. If you have multiple tenants, ensure you have your default **dev-** tenant selected.\n\n1. Go to **Applications** > **Applications**.\n\n1. Select the **+ Create Application** button.\n1. Name the application **Lab: Web App**.\n> Note: It is important that this name be exact, since the Auth0 Labs Extension searches for this name in a subsequent step.\n1. Select **Regular Web Applications**.\n1. Select the **Create** button.\n> You're ready to begin adding authentication to your application\n"
-    },
-    {
-      "file": "",
-      "line": 1,
-      "title": "Configure your local environment",
-      "description": "## Configure your local environment\nLet's leverage the Auth0 Labs extension for VSCode to pull down the local configurations for the application you just registered with your Auth0 tenant.\n\n1. Select [this link](command:auth0.lab.localConfigure). This creates a `.env` file in `src/web-app` with the appropriate environment variables and values for integrating with Auth0. These include:\n    - `ISSUER_BASE_URL`\n    - `CLIENT_ID`\n    - `CLIENT_SECRET`\n2. If you do not see the `.env` file created in `src/web-app`, check the following:\n    - You registered the application with the same tenant you authorized with the Auth0 Labs extension in the first step of this lab.\n    - You named the application **Lab: Web App**.\n    > See https://auth0-training.github.io/#im-missing-an-env-file-for-my-application--my-application-doesnt-launch for more troubleshooting details."
     }
   ]
 }
