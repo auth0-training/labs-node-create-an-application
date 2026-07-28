@@ -200,7 +200,7 @@
     },
     {
       "file": "src/web-app/index.js",
-      "description": "## Enable global authentication routing\nHere, we'll add code to the application that configures the middleware to make authentication optional across the entire application. In the `app.use` configuration block that we added previously, we'll add:\n\n``` jsx\n\n\t\t\tauthRequired: false,\n```\n\n>Select the **Insert Code** link to make this change.\n\n\nWith this done, all routes are public again. We'll need a way to explicitly make certain routes private. Thankfully, this functionality is supplied by the same express-openid-connect middleware! ",
+      "description": "## Enable global authentication routing\nHere, we'll add code to the application that configures the middleware to make authentication optional across the entire application. In the `app.use` configuration block that we added previously, we'll add:\n\n``` jsx\n\t\t\tauthRequired: false,\n```\n\n>Select the **Insert Code** link to make this change.\n\n\nWith this done, all routes are public again. We'll need a way to explicitly make certain routes private. Thankfully, this functionality is supplied by the same express-openid-connect middleware! ",
       "line": 51,
       "selection": {
         "start": {
@@ -231,14 +231,14 @@
     {
       "file": "src/web-app/index.js",
       "description": "## Secure the user route\nTo secure the `user` route, we'll add the `requiresAuth` middleware directly to it.\n\n``` jsx\napp.get(\"/user\", requiresAuth(), async (req, res) => {\n```\nto secure the route.",
-      "line": 78,
+      "line": 77,
       "selection": {
         "start": {
-          "line": 78,
+          "line": 77,
           "character": 1
         },
         "end": {
-          "line": 78,
+          "line": 77,
           "character": 100
         }
       }
@@ -246,14 +246,14 @@
     {
       "file": "src/web-app/index.js",
       "description": "## Secure the expenses route\nWe'll want to ensure unauthenticated users aren't able to view the `expenses` route either. So we'll add the `requiresAuth` middleware to this route too.\n\n``` jsx\n app.get(\"/expenses\", requiresAuth(), async (req, res, next) => {\n```\n to secure the route.",
-      "line": 87,
+      "line": 86,
       "selection": {
         "start": {
-          "line": 87,
+          "line": 86,
           "character": 1
         },
         "end": {
-          "line": 87,
+          "line": 86,
           "character": 100
         }
       }
